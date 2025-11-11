@@ -19,7 +19,7 @@ def build_family_tree():
     return root
 
 # === 1. Cari level dengan BFS
-def find_level_bfs(root, target_name):
+def cari_level_bfs(root, target_name):
     if not root:
         return -1
     
@@ -33,15 +33,14 @@ def find_level_bfs(root, target_name):
     return -1
 
 # === 2. DFS: Cetak seluruh pohon dengan level (mulai dari 1) ===
-def dfs_print_with_levels(node, level=1, prefix=""):
+def print_dfs(node, level=1, prefix=""):
     print(f"{prefix}└─ {node.name} (Level {level})")
     for i, child in enumerate(node.children):
         new_prefix = prefix + ("    " if i == len(node.children) - 1 else "│   ")
-        dfs_print_with_levels(child, level + 1, new_prefix)
-
+        print_dfs(child, level + 1, new_prefix)
 # === Gabungkan: Cari + Tampilkan ===
-def analyze_person(root, name):
-    level = find_level_bfs(root, name)
+def analyze(root, name):
+    level = cari_level_bfs(root, name)
     if level == -1:
         print(f"{name} tidak ditemukan.")
         return
@@ -60,7 +59,7 @@ def analyze_person(root, name):
     
     if target_node and target_node.children:
         print(f"\nKeturunan {name}:")
-        dfs_print_with_levels(target_node, level)
+        print_dfs(target_node, level)
     else:
         print(f"{name} tidak punya anak.")
 
@@ -68,9 +67,9 @@ def analyze_person(root, name):
 root = build_family_tree()
 
 print("=== Seluruh Pohon Keluarga ===")
-dfs_print_with_levels(root)  # tampilkan seluruh pohon dengan level (root = level 1)
+print_dfs(root)  # tampilkan seluruh pohon dengan level (root = level 1)
 
 print("\n=== Analisis ===")
-analyze_person(root, "Mufasa & Sarabi")
+analyze(root, "Mufasa & Sarabi")
 print("\n---")
-analyze_person(root, "Scar & Zira")
+analyze(root, "Scar & Zira")
