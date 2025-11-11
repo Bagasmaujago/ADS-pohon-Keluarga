@@ -18,7 +18,7 @@ def build_family_tree():
     
     return root
 
-# === 1. Cari level seseorang dengan BFS (mulai dari level 1) ===
+# === 1. Cari level dengan BFS
 def find_level_bfs(root, target_name):
     if not root:
         return -1
