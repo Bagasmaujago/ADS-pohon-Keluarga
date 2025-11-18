@@ -7,14 +7,14 @@ class Node:
 
 # === Bangun Pohon Keluarga ===
 def build_family_tree():
-    root = Node("Ahadi & Uru")
+    root = Node("George Joestar & Mary Joestar")
     
-    Mufasa = Node("Mufasa & Sarabi")
-    Scar = Node("Scar & Zira")
-    root.children = [Mufasa, Scar]
+    Jonathan_Joestar = Node("Jonathan Joestar & Erina Joestar")
+    Dio_Brando = Node("Dio Brando & Jane Doe")
+    root.children = [Jonathan_Joestar, Dio_Brando]
     
-    Mufasa.children = [Node("Simba & Nala"), Node("Kion")]
-    Scar.children = [Node("Nuka"), Node("Vitani")]
+    Jonathan_Joestar.children = [Node("George Joestar II")]
+    Dio_Brando.children = [Node("Giorno Giovanna"), Node("Donatello Versus")]
     
     return root
 
@@ -70,6 +70,6 @@ print("=== Seluruh Pohon Keluarga ===")
 print_dfs(root)  # tampilkan seluruh pohon dengan level (root = level 1)
 
 print("\n=== Analisis ===")
-analyze(root, "Mufasa & Sarabi")
+analyze(root, "Jonathan Joestar & Erina Joestar")
 print("\n---")
-analyze(root, "Scar & Zira")
+analyze(root, "Dio Brando & Jane Doe")
